@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASD Prediction Result</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+</head>
+
+<body style="background-image: url('../static/p2.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; font-family: 'Roboto', sans-serif; color: white; margin: 0;">
+
+    <!-- Navbar -->
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background-color: #34495e; color: white; border-bottom: 2px solid #2c3e50;">
+        <div>
+            <h2 style="margin: 0; font-family: 'Roboto', sans-serif;">Autism Spectrum Disorder Prediction</h2>
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="/" style="color: white; text-decoration: none; font-size: 18px; transition: color 0.3s;">Prediction</a>
+            <a href="/charts" style="color: white; text-decoration: none; font-size: 18px; transition: color 0.3s;">Charts</a>
+            <!-- <a href="/logout" style="color: white; text-decoration: none; font-size: 18px; transition: color 0.3s;">Logout</a> -->
+        </div>
+    </nav>
+
+    <!-- Result Section -->
+    <div class="result-container" style="text-align: center; margin-top: 50px; padding: 30px; background: rgba(0, 0, 0, 0.6); border-radius: 15px; width: 50%; margin-left: auto; margin-right: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);">
+        {% if prediction > 0.4 %}
+            <h1 style="color: #ff4d4d; animation: fadeIn 2s;">Autism Spectrum Disorder (ASD) Detected</h1>
+            <h3 style="color: #f39c12; animation: fadeIn 3s;">Inactive Person</h3>
+            <img src="../static/p4.jpg" alt="ASD Detected" width="300" height="373" style="margin-top: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); animation: fadeIn 3s;">
+        {% else %}
+            <h1 style="color: #2ecc71; animation: fadeIn 2s;">Everything Looks NORMAL</h1>
+            <h2 style="color: #3498db; animation: fadeIn 3s;">ASD Not Detected!</h2>
+            <img src="../static/p5.jpg" alt="ASD Not Detected" width="420" height="403" style="margin-top: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); animation: fadeIn 3s;">
+        {% endif %}
+        <br><br>
+        <a href="/index" class="back-button" style="display: inline-block; padding: 10px 30px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; font-size: 18px; margin-top: 20px; transition: background 0.3s;">Go Back</a>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-button:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+    </style>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+# Installations (# modules Installations process 
+    ( 1-open "anaconda prompt",
+     2-type&enter: conda create -n tsf python=3.6,
+      3-type&enter: activate tsf,
+       4-type&enter command: pip install module-name) 
+        '''modules names below''')
+pandas
+numpy
+sklearn
+flask
+tensorflow
+keras
+matplotlib
+seaborn
+os
+warnings
+xgboost
+pip install scikit-learn==0.23.2
+
+
+
+NOTE: modules installation is a one time process in one laptop
+NOTE2: Instead of taking genetic algorithm for training we are taking NN
+
+
+### To find or to differentiate accuracies of different classifiers and methods (run in "jupyter (tsf)") ###
+
+1) run "heart_disease_prediction.ipynb" file  for rf.pkl model creation
+
+### Operations (run in "spyder (tsf)") ###
+2) run "Diabetes Predictor.py" file for  for diabetes-prediction-rfc-model.pkl model creation
+
+# dont create model if model.pkl is already present
+
+### Operations (run in "spyder (tsf)") ###
+
+1) DONT run "h5 model creation.py" file for heart.h5 model creation
+# dont create model if model.h5 is already present
+
+
+### Main file (run in "spyder (tsf)") ###
+
+1) run "app.py" file to implement main operation

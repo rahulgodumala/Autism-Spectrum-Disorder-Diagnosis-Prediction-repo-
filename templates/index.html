@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASD Prediction</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    background-image: url('../static/p3.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+ /* Navbar */
+ nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background-color: #34495e;
+        color: white;
+        border-bottom: 2px solid #2c3e50;
+        animation: navbarSlide 1.5s ease-in-out;
+    }
+
+    nav h2 {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        margin-left: 20px;
+        transition: color 0.3s, font-size 0.3s;
+    }
+
+    nav a:hover {
+        color: #f39c12;
+        font-size: 20px;
+        transform: scale(1.1);
+    }
+
+    /* Website Title */
+    .container {
+        padding: 25px;
+        position: relative;
+        animation: containerFadeIn 2s ease-in-out;
+        text-align: center;
+    }
+
+    .description p {
+        color: #ffffff;
+        font-style: italic;
+        font-size: 14px;
+        margin: -5px 0 0;
+    }
+
+
+.ml-container {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 12px;
+    color: white;
+    max-width: 600px;
+    margin: 60px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #00ffd9;
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 500;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 15px;
+    background-color: #222;
+    color: #fff;
+    appearance: none;
+}
+
+select:focus {
+    outline: 2px solid #00ffd9;
+}
+
+.submit-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    background-color: #00ffd9;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #00bfa6;
+}
+
+    </style>
+</head>
+<body>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 50px; background-color: #34495e; color: white; border-bottom: 2px solid #2c3e50;">
+        <!-- Project Title -->
+        <div>
+            <h2 style="margin: 0; font-family: 'Roboto', sans-serif;">Autism Spectrum Disorder Prediction</h2>
+        </div>
+        <!-- Top-right menu -->
+        <div style="display: flex; gap: 20px;">
+            <a href="/charts" style="color: white; text-decoration: none; font-size: 18px; transition: color 0.3s;">Charts</a>
+            <a href="/login" style="color: white; text-decoration: none; font-size: 18px; transition: color 0.3s;">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Website Title -->
+    <div class="container">
+        <!-- <h2 class='container-heading'>
+            <span class="heading_font" style="color: white;text-align:center;"></span>
+        </h2> -->
+        <div class='description'>
+            <br></br>
+            <p style="color:red; font-size:18px"></p>
+        </div>
+    </div>
+    <div class="ml-container">
+        <h2 class="form-title">Select from the Below to Autism Spectrum Disorder Predictor</h2>
+        <form action="{{ url_for('predict') }}" method="POST">
+            <label for="dls">Delayed language skills</label>
+            <select id="dls" name="dls" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="dms">Avoids eye contact</label>
+            <select id="dms" name="dms" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="dcols">Lack of interest in peer relationships</label>
+            <select id="dcols" name="dcols" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="hiib">Poor response to name</label>
+            <select id="hiib" name="hiib" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="esd">Repetitive movements</label>
+            <select id="esd" name="esd" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="ueash">Fixation on parts of objects</label>
+            <select id="ueash" name="ueash" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="gi">Over- or under-sensitivity to sounds</label>
+            <select id="gi" name="gi" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="umer">Inflexible adherence to routines</label>
+            <select id="umer" name="umer" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="asew">Unusual reactions to the way things smell, taste, look, feel</label>
+            <select id="asew" name="asew" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+            <label for="mfte">Delayed cognitive or learning skills</label>
+            <select id="mfte" name="mfte" required>
+                <option value="" disabled selected>Select response</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            
+
+            <div class="submit-button">
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

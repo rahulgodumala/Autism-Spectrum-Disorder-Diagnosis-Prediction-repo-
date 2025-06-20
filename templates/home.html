@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASD Prediction</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Video Background */
+        /* Fullscreen Video Background */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #34495e;
+            color: white;
+            border-bottom: 2px solid #2c3e50;
+            animation: navbarSlide 1.5s ease-in-out;
+        }
+
+        nav h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 20px;
+            transition: color 0.3s, font-size 0.3s;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+            font-size: 20px;
+            transform: scale(1.1);
+        }
+
+        /* Centered Text */
+        .center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .center-text h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: #00ffd9;
+        }
+
+        .center-text p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video autoplay muted loop id="bg-video">
+        <source src="{{ url_for('static', filename='p1.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Navbar -->
+    <nav>
+        <h2>Autism Spectrum Disorder Prediction</h2>
+        <div>
+            <a href="/login">Login</a>
+        </div>
+    </nav>
+
+    <!-- Centered Text Content -->
+    <div class="center-text">
+        <h1>Welcome to ASD Prediction</h1>
+        <p>Predicting Autism Spectrum Disorder with AI-Powered Precision</p>
+    </div>
+
+</body>
+</html>
