@@ -72,9 +72,24 @@ project/
    ````
 
 
+
 ## 📌 Note
 
 This project is for academic and educational purposes. It does not replace professional medical diagnosis.
+
+
+
+## 🏠 Web App Home Page
+![Web Home Page](images/Web_Home_Page.png)
+
+### 🔐 Login Page
+![Login Page](images/Login_Page.png)
+
+## 🧾 Input Form Screenshot
+![ASD Predictor Input Form](images/asd_predictor_input_form.png)
+
+### 📤 Output Form
+![Output Form](images/ASD_Predictor_Output_Form.png)
 
 
 
