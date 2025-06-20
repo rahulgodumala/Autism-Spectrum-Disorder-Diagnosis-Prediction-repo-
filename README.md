@@ -72,6 +72,14 @@ project/
    ````
 
 
+## 🔑 Login Credentials
+
+To access the ASD Prediction system, use the following credentials:
+
+- **User ID:** admin  
+- **Password:** admin
+
+
 
 ## 📌 Note
 
