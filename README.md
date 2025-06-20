@@ -94,7 +94,7 @@ This project is for academic and educational purposes. It does not replace profe
 ![Login Page](images/Login_Page.png)
 
 ## 🧾 Input Form Screenshot
-![ASD Predictor Input Form](images/asd_predictor_input_form.png)
+![ASD Predictor Input Form](images/ASD_Predictor_Input_Form.png)
 
 ### 📤 Output Form
 ![Output Form](images/ASD_Predictor_Output_Form.png)
